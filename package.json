@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "webpack serve --mode=development --port=3002",
+    "start": "webpack serve --mode development",
     "build": "webpack --mode=production",
-    "serve": "serve -s build --port=3002",
+    "serve": "serve -s build -p 3002",
     "test": "react-scripts test"
   },
   "dependencies": {
