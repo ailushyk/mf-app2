@@ -1,0 +1,9 @@
+{
+  "exposes": {
+    "./components": "./src/components/index.ts",
+    "./App2Page": "./src/pages/App2Page"
+  },
+  "remotes": {
+    "ui": "uivtcd"
+  }
+}
