@@ -10,33 +10,33 @@ module.exports = (env, argv) => {
 
   const config = {
     output: {
-      publicPath: 'http://localhost:3002/'
+      publicPath: 'http://localhost:3002/',
     },
 
     resolve: {
-      extensions: ['.jsx', '.js', '.json', '.tsx', '.ts']
+      extensions: ['.jsx', '.js', '.json', '.tsx', '.ts'],
     },
 
     devServer: {
-      port: 3002
+      port: 3002,
     },
 
     module: {
       rules: [
         {
           test: /\.css$/i,
-          use: ['style-loader', 'css-loader']
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.(png|jpg|jpeg|svg)$/i,
-          type: 'asset/resource'
+          type: 'asset/resource',
         },
         {
           test: /\.m?js/,
           type: 'javascript/auto',
           resolve: {
-            fullySpecified: false
-          }
+            fullySpecified: false,
+          },
         },
         {
           test: /\.(ts|js)x?$/i,
@@ -47,12 +47,12 @@ module.exports = (env, argv) => {
               presets: [
                 '@babel/preset-env',
                 '@babel/preset-react',
-                '@babel/preset-typescript'
-              ]
-            }
-          }
-        }
-      ]
+                '@babel/preset-typescript',
+              ],
+            },
+          },
+        },
+      ],
     },
 
     plugins: [
@@ -68,33 +68,32 @@ module.exports = (env, argv) => {
           react: {
             singleton: true,
             eager: true,
-            requiredVersion: deps.react
+            requiredVersion: deps.react,
           },
           'react-dom': {
             singleton: true,
             eager: true,
-            requiredVersion: deps['react-dom']
-          }
-        }
-
+            requiredVersion: deps['react-dom'],
+          },
+        },
       }),
       new HtmlWebPackPlugin({
-        template: './public/index.html'
+        template: './public/index.html',
       }),
       new ForkTsCheckerWebpackPlugin({
-        async: false
-      })
-    ]
+        async: false,
+      }),
+    ],
   };
 
   if (mode === 'production') {
     config.output = {
       path: path.resolve(__dirname, 'build'),
       filename: '[name].[contenthash].js',
-      publicPath: 'http://localhost:3002/'
+      publicPath: 'http://localhost:3002/',
     };
-    config.plugins.push(new CleanWebpackPlugin())
+    config.plugins.push(new CleanWebpackPlugin());
   }
 
-  return config
+  return config;
 };

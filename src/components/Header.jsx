@@ -1,5 +1,5 @@
-import React from "react";
-import { Button } from "./Button";
+import React from 'react';
+import { Button } from './Button';
 
 export const Header = ({ onLogin, onCreateAccount }) => (
   <header>
